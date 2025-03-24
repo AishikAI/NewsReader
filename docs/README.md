@@ -1,6 +1,8 @@
 # Company News Summarization and Sentiment Analysis
 
-A web-based tool that scrapes recent news articles about a company, summarizes them, performs sentiment analysis, generates a comparative report, and converts summaries into Hindi speech.
+A web-based tool that scrapes recent news articles about a company, summarizes them, performs sentiment analysis, generates a comparative report, converts summaries into Hindi speech, queries through the articles.
+
+Access the app from: https://huggingface.co/spaces/HugAish/company-news-analyzer
 
 ---
 
@@ -11,6 +13,7 @@ A web-based tool that scrapes recent news articles about a company, summarizes t
 - Performs sentiment classification (Positive, Neutral, Negative)
 - Analyzes and compares article sentiment, topics, and polarity
 - Converts summaries into Hindi audio using Google Translate + gTTS
+- Dedicated query window to query the articles
 - Provides clean web interface via Streamlit
 - Exposes backend via FastAPI with multiple endpoints
 
@@ -21,7 +24,7 @@ A web-based tool that scrapes recent news articles about a company, summarizes t
 - **Language**: Python 3.10+
 - **Frontend**: Streamlit
 - **Backend**: FastAPI
-- **TTS**: gTTS + googletrans
+- **TTS**: gTTS + deep_trnaslator
 - **Summarizer**: Gemini 1.5 Flash
 - **Sentiment**: Gemini 1.5 Flash
 - **Scraping**: NewsAPI + BeautifulSoup + LangChain Web Loader
@@ -37,6 +40,7 @@ A web-based tool that scrapes recent news articles about a company, summarizes t
 4. Performs sentiment analysis on summaries.
 5. Generates structured report with statistics and visualizations.
 6. Converts the summary to Hindi speech and stores it as an MP3 file.
+7. Queries through the reports using Gemini-1.5-Flash
 
 ---
 
@@ -55,8 +59,7 @@ news-summarization-app/
 │   ├── scraper.py           # News fetcher + topic extraction
 │   └── analysis.py          # Comparative metrics + visualizations
 ├── data/                    # Stores JSON and audio files
-├── docs/                    # README + API + Model info
-├── deployment/              # Dockerfile + HF config
+├── docs/                    # README + API + Model info             
 ├── requirements.txt         # Python dependencies
 
 ```
@@ -140,7 +143,7 @@ $ source venv/bin/activate   # On Windows: venv\Scripts\activate
 $ pip install -r requirements.txt
 
 # Step 4: Run the Streamlit app (Frontend)
-$ streamlit run app/app.py
+$ streamlit run app.py
 
 # Step 5: (Optional) Run the FastAPI server for API access
 $ uvicorn app.api:app --reload
