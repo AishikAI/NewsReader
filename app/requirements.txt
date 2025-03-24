@@ -1,0 +1,41 @@
+# Core Libraries
+requests
+beautifulsoup4
+
+# NLP & Text Processing
+nltk
+spacy
+textblob
+transformers
+torch
+sentence-transformers
+
+# Sentiment Analysis
+vaderSentiment
+
+# Comparative Analysis & Data Handling
+pandas
+numpy
+
+# Text-to-Speech (Hindi)
+gtts
+pydub
+
+# Web UI & API Development
+streamlit
+gradio
+fastapi
+uvicorn
+
+# Logging & Utilities
+loguru
+tqdm
+python-dotenv
+
+# Testing
+pytest
+unittest2
+
+# Deployment
+huggingface-hub
+

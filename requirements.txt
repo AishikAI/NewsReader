@@ -1,0 +1,52 @@
+# Core Libraries
+requests
+beautifulsoup4
+newsapi-python
+newspaper3k
+spacy
+
+# NLP & Text Processing
+nltk
+spacy
+textblob
+transformers
+torch
+sentence-transformers
+langchain-community
+keybert
+google-generativeai
+
+# Sentiment Analysis
+vaderSentiment
+transformers
+torch
+# Comparative Analysis & Data Handling
+pandas
+numpy
+
+# Text-to-Speech (Hindi)
+gtts
+pydub
+googletrans
+deep-translator
+
+# Web UI & API Development
+streamlit
+gradio
+fastapi
+uvicorn
+
+# Logging & Utilities
+loguru
+tqdm
+python-dotenv
+pytest
+matplotlib
+
+# Testing
+pytest
+unittest2
+
+# Deployment
+huggingface-hub
+
