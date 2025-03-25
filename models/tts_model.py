@@ -1,6 +1,10 @@
 import os
 from gtts import gTTS
 from deep_translator import GoogleTranslator
+import google.generativeai as genai
+
+genai.configure(api_key="AIzaSyC8MHjTSPaiFuCE53xtHHZHsUnfBM2eXr4")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 def translate_to_hindi(text):
     """
@@ -40,6 +44,30 @@ def text_to_speech(text, filename="tts_output.mp3"):
     except Exception as e:
         print(f"TTS generation error: {e}")
         return None
+
+def play_dashboard_summary(report_text):
+    """
+    Summarizes a full dashboard report using Gemini, translates it to Hindi,
+    converts it to speech, and returns the English summary and audio file path.
+
+    Args:
+        report_text (str): Full text-based dashboard report
+
+    Returns:
+        tuple: (summary in English, audio path in Hindi)
+    """
+    try:
+        prompt = f"You are an AI assistant. Summarize the following dashboard report into a concise paragraph:\n\n{report_text}"
+        response = model.generate_content(prompt)
+        summary = response.text.strip()
+
+        hindi_summary = translate_to_hindi(summary)
+        audio_path = text_to_speech(hindi_summary, filename="dashboard_summary.mp3")
+
+        return summary, audio_path
+    except Exception as e:
+        print("Dashboard summary error:", e)
+        return None, None
 
 # Example usage for testing
 if __name__ == "__main__":
